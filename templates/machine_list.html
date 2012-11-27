@@ -1,0 +1,32 @@
+
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Máquina de Turing</title>
+
+    <link href="static/css/bootstrap.css" rel="stylesheet">
+
+</head>
+
+
+<style type="text/css">
+body{
+    font-size: 18
+}
+body div{
+    font-size: 18
+}
+</style>
+
+<body style = "text-align:center">
+    <button class="btn btn-large btn-primary" onclick = "window.location = '/machine'" > My machine </button>
+    <hr>
+    Máquinas de Turing dos alunos de CT-214
+    <hr>
+    {{ renderedMachines }}
+    <hr>
+    <button class="btn btn-large btn-primary" onclick = "window.location.redirect(/machine)" > My machine </button>
+</body>
+</html>

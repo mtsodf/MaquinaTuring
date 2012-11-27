@@ -1,0 +1,196 @@
+
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Máquina de Turing</title>
+</head>
+
+<link href="static/css/bootstrap.css" rel="stylesheet">
+<style type="text/css">
+    
+    div{
+        font-family: sans-serif;
+    }
+    
+    #titulo{
+        text-align: center;
+        font-size: 50px;
+        margin-bottom: 30px;
+    }
+
+    .content{
+
+        width: 1000px;
+        margin: auto;
+    }
+
+    #seta{
+        background-image: 'seta.png'
+    }
+
+    #reta{
+        border-left: 1px solid;
+        width:1px;
+        height: 80px;
+        margin: auto;
+    }
+
+    #estado{
+        border: 1px solid;
+        text-align: center;
+        font-size: 40px;
+        width: 90px;
+        height: 48px;
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+
+    #fita_content{
+        overflow: hidden;
+        height: 30px;
+        width: 800px;
+        background-color: rgba(247,225,151,0.4);
+        margin: auto;
+        position: relative;
+        margin-top: 30px;
+
+    }
+
+    #ponta{
+        height: 180px;
+        width: 90px;
+        margin: auto;
+    }
+
+    #fita{
+        position: absolute;
+
+    }
+
+    #fita > div{
+        height: 28px;
+        width: 30px;
+        border: 1px solid;
+        text-align: center;
+        float: left; 
+        line-height: 28px;       
+
+    }
+
+    .buttonTutorial{
+        width: 48%;
+        float:left;
+    }
+
+    .buttonTutorial>input{
+        height:35px;
+        width:100%;
+    }
+
+    .buttonTutorial>textarea{
+        height:90px;
+        width: 100%;
+    }
+
+    .instructions{
+        float: right;
+        width: 50%;
+    }
+
+    .dist{
+        padding-top: 45px;
+    }
+
+    p{
+        text-align: center;
+    }
+
+</style>
+
+<script type="text/javascript" src="static/js/MaquinaTuring.js"></script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+
+<body onload = "onload()">
+
+    <div class = 'content'>
+
+        <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <h3 class="muted">Máquina de Turing</h3>
+      </div>
+
+      <hr>
+
+        <div id = 'fita_content'>
+            <div id = 'fita'>
+            </div>
+        </div>
+
+        <div id = 'ponta'>
+            <div id = 'seta'> </div>
+            <div id = 'reta'> </div>
+            <div id = 'estado'> A </div>
+        </div>
+
+        <div id = "teste"> </div>
+
+        <div style = "text-align: center">
+            <button onclick = "playStep()" class="btn btn-large btn-primary" id="playStep_button"> Play Step </button>
+            <button onclick = "play()"  class="btn btn-large btn-success" id="play_button"> Play</button>
+            <button onclick = "stop()"  class="btn btn-large btn-danger" id="stop_button" disabled> Stop </button>
+        </div>
+
+        <div class = "row dist">
+            <div class="buttonTutorial">
+                <h3 class="muted"> Configurações</h3>
+                <hr>
+                    <div style = "text-align:center">
+                        <button class="btn btn-large btn-primary" onclick = "init()" id="init_button"> Iniciar</button>
+                        <button class="btn btn-large btn-primary" onclick = "save()" id="init_button"> Salvar</button>
+                    </div>
+
+                    <input type = "text" id="fita_text" placeholder = "Fita" value='{{tape}}'> </input>
+                    <input type = "text" id="initialState"  placeholder = "Estado Inicial" value='{{state}}'> </input>
+                    <textarea id="program" placeholder="Programa" >{{code}}</textarea>
+                    <input type = "text" id="machine_name" placeholder = "Nome da Máquina" value='{{name}}'> </input>
+                    <input type = "text" id="author_name" placeholder = "Nome do Autor" value='{{author}}'> </input>
+                    <textarea id="description" placeholder="Descrição" >{{description}}</textarea>
+                    
+                    <div style = "text-align:center">
+                        <button class="btn btn-large btn-primary" onclick = "init()" id="init_button"> Iniciar</button>
+                        <button class="btn btn-large btn-primary" onclick = "save()" id="init_button"> Salvar</button>
+                    </div>
+            </div>
+
+            <div class = "instructions">
+                <h3 class="muted"> Instruções</h3>
+                <hr>
+                <li> Coloque no campo fita os caracteres inicialmente escritos na fita.</li>
+                <li> Coloque no campo estado inicial o valor do estado inicial</li>
+                <li> No campo programa, digite o estado atual,  símbolo lido, símbolo escrito, direção do movimento, próximo estágio. Como o exemplo abaixo (? representa o símbolo em branco):
+
+                   <p> s1    1      ?      R    s2 </p>
+                   <p> s2    1      1      R    s2 </p>
+                   <p> s2    ?      ?      R    s3 </p>
+                   <p> s3    ?      1      L    s4 </p>
+                   <p> s3    1      1      R    s3 </p>
+                   <p> s4    1      1      L    s4 </p>
+                   <p> s4    ?      ?      L    s5 </p>
+                   <p> s5    1      1      L    s5 </p>
+                   <p> s5    ?      1      R    s1 </p>
+                </li>
+                
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

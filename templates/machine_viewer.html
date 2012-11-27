@@ -80,8 +80,6 @@
 
     }
 
-
-
     .buttonTutorial{
         width: 48%;
         float:left;
@@ -115,7 +113,7 @@
 <script type="text/javascript" src="static/js/MaquinaTuring.js"></script>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 
-<body onload = "onload()">
+<body onload = "onload();">
 
     <div class = 'content'>
 
@@ -141,8 +139,6 @@
             <div id = 'estado'> A </div>
         </div>
 
- 
-
         <div id = "teste"> </div>
 
         <div style = "text-align: center">
@@ -152,38 +148,24 @@
         </div>
 
         <div class = "row dist">
-
-
             <div class="buttonTutorial">
-                <h3 class="muted"> Configurações</h3>
+                <h3 class="muted"> Configurações </h3>
                 <hr>
-                    <input type = "text" id="fita_text" placeholder = "Fita"> </input>
-                    <input type = "text" id="initialState"  placeholder = "Estado Inicial"> </input>
-                     <textarea id="program" placeholder="Programa"></textarea>
-                     <div style = "text-align:center">
-                     <button class="btn btn-large btn-primary" onclick = "init()" id="init_button"> Iniciar</button>
-                    </div>
+                <div style = "text-align:center">
+                    <button class="btn btn-large btn-primary" onclick = "init()" id="init_button"> Iniciar</button>
+                </div>
+
+                <input type = "text" id="fita_text" placeholder = "Fita" value="{{tape}}"> </input>
+                <input type = "text" id="initialState"  placeholder = "Estado Inicial" value="{{state}}"> </input>
+                <textarea id="program" placeholder="Programa" >{{code}}</textarea> 
             </div>
 
             <div class = "instructions">
-                <h3 class="muted"> Instruções</h3>
+                <h3 class="muted"> Sobre </h3>
                 <hr>
-                <li> Coloque no campo fita os caracteres inicialmente escritos na fita.</li>
-                <li> Coloque no campo estado inicial o valor do estado inicial</li>
-                <li> No campo programa, digite o estado atual,  símbolo lido, símbolo escrito, direção do movimento, próximo estágio. Como o exemplo abaixo (? representa o símbolo em branco):
-
-                   <p> s1    1      ?      R    s2 </p>
-                   <p> s2    1      1      R    s2 </p>
-                   <p> s2    ?      ?      R    s3 </p>
-                   <p> s3    ?      1      L    s4 </p>
-                   <p> s3    1      1      R    s3 </p>
-                   <p> s4    1      1      L    s4 </p>
-                   <p> s4    ?      ?      L    s5 </p>
-                   <p> s5    1      1      L    s5 </p>
-                   <p> s5    ?      1      R    s1 </p>
-                </li>
-                
-
+                <div>{{name}}</div>
+                <div>{{author}}</div>
+                <div>{{description}}</div>
             </div>
         </div>
     </div>
