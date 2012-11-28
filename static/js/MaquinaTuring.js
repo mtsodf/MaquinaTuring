@@ -169,6 +169,8 @@ function init(){
         fita[i] = '?';
     }
 
+    current = BLANKS_LEFT;
+
     deltaLeft = (BLANKS_LEFT - 12) * 32;
     $('#fita').attr('style','left: -'+ deltaLeft + 'px');
 
